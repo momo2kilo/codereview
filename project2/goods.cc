@@ -1,9 +1,12 @@
 #include "./goods.h"
 
 // Set member variable of goods with given index and price values
-void Goods::SetGoodsInfo(int index, int price) {
+bool Goods::SetGoodsInfo(int index, int price) {
+  if (index<=0) return false;
+  if (price>1000000 || price<0) return false;
   goods_index_ = index;
   goods_price_ = price;
+  return true;
 }
 
 // Return index information
